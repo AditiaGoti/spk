@@ -6,8 +6,12 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h4 mb-0 text-bold-gray-800"><i class="fas fa-fw fa-folder"></i> Data Kriteria</h1>
         
-
+        @if (Auth::user()->role == 'admin')
         <a href="{{ route('createKriteria') }}" class="btn btn-sm btn-dark bg-gradient-primary"><i class="fa fa-plus mr-2"></i>Tambah Kriteria </a>
+        @else
+        <!-- <a class="btn btn-sm btn-dark bg-gradient-primary"><i class="fa fa-plus mr-2" onclick="return false;"></i>Tambah Kriteria </a> -->
+        @endif
+
     </div>
     <div class="card shadow mb-4">
 
@@ -34,6 +38,7 @@
                                 <td>{{ $kriteria->type }}</td>
                                 <td>{{ $kriteria->bobot }}</td>
                                 <td>
+                                @if (Auth::user()->role == 'admin')
                                     <div class="btn-group" role="group">
                                         <a data-toggle="tooltip" data-placement="bottom" title="Edit Data"
                                             href="{{ route('editKriteria', $kriteria) }}"
@@ -47,6 +52,21 @@
                                             </button>
                                         </form>
                                     </div>
+                                @else
+                                    <div class="btn-group" role="group">
+                                        <a data-toggle="tooltip" data-placement="bottom" title="Edit Data"
+                                            href="{{ route('editKriteria', $kriteria) }}"
+                                            class="btn btn-success btn-sm btn rounded mr-2" onclick="return false;"><i class="fa fa-pen"></i></a>
+                                        <form action="{{ route('deleteKriteria', $kriteria) }}" method="post">
+                                            @method('delete')
+                                            @csrf
+                                            <button data-toggle="tooltip" data-placement="bottom" title="Hapus Data"
+                                            onclick="return false;"
+                                                class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                @endif
                                 </td>
                             </tr>
                         @endforeach

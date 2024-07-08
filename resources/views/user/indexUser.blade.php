@@ -41,6 +41,8 @@
                                     @endif
                                 </td>
                                 <td>
+                                @if (Auth::user()->role == 'admin')
+
                                     <div class="btn-group" role="group">
                                         <a data-toggle="tooltip" data-placement="bottom" title="Edit Data"
                                             href="{{ route('editUser', $user) }}"
@@ -54,6 +56,28 @@
                                             </button>
                                         </form>
                                     </div>
+                                @else 
+                                <div class="btn-group" role="group">
+                                             @csrf
+                                            <button data-toggle="tooltip" data-placement="bottom" title="Edit Data"
+                                            onclick="return false;"
+                                            class="btn btn-success btn-sm btn rounded mr-2"><i class="fa fa-pen"></i>
+                                            </button>
+                                        <!-- <a data-toggle="tooltip" data-placement="bottom" title="Edit Data"
+                                            href="{{ route('editUser', $user) }}"
+                                            onclick="return false;"
+                                            disabled
+                                            class="btn btn-success btn-sm btn rounded mr-2"><i class="fa fa-pen"></i></a> -->
+                                        <form action="{{ route('deleteUser', $user) }}" method="post">
+                                            @method('delete')
+                                            @csrf
+                                            <button data-toggle="tooltip" data-placement="bottom" title="Hapus Data"
+                                            onclick="return false;"
+                                                class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

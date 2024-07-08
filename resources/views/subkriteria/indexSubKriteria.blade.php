@@ -10,12 +10,15 @@
             <div class="card shadow mb-4">
                 <!-- /.card-header -->
                 <div class="card-header py-3">
-                    <div class="d-sm-flex align-items-center justify-content-between">
+                <div class="d-sm-flex align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-black">
                             {{  $subkriteria->kode_kriteria . ' - ' . $subkriteria->nama  }}</h6>
+                            @if (Auth::user()->role == 'admin')    
 
                         <a href="#tambah{{ $subkriteria->id }}" data-toggle="modal" class="btn btn-sm btn-dark bg-gradient-primary">
                         <i class="fa fa-plus mr-2"></i> Tambah nilai kriteria </a>
+                        @endif
+
                     </div>
                 </div>
 
@@ -72,6 +75,7 @@
                                         <td>{{ $SubKriteria->nama }}</td>
                                         <td>{{ $SubKriteria->nilai }}</td>
                                         <td>
+                                        @if (Auth::user()->role == 'admin')
                                             <div class="btn-group" role="group">
                                                 <a data-toggle="modal" title="Edit Data"
                                                     href="#editsk{{ $SubKriteria->id }}"
@@ -88,6 +92,24 @@
                                                     </button>
                                                 </form>
                                             </div>
+                                        @else
+                                        <div class="btn-group" role="group">
+                                                <a data-toggle="modal" title="Edit Data"
+                                                    href=""
+                                                    class="btn btn-success btn-sm btn rounded mr-2" onclick="return false;"><i
+                                                        class="fa fa-pen"></i></a>
+
+                                                <form action="{{ route('deleteSubKriteria', $SubKriteria) }}"
+                                                    method="post">
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button data-toggle="tooltip" data-placement="bottom" title="Hapus Data"
+                                                    onclick="return false;"
+                                                        class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        @endif
                                         </td>
                                     </tr>
 

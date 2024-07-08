@@ -27,6 +27,7 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $dataAlternatif->nama }}</td>
                                 <td>
+                                @if (Auth::user()->role == 'user')
                                     @if ($dataAlternatif->Penilaian->count() == 0)
                                         <a data-toggle="modal" title="input Data"
                                             href="#inputpenialaian{{ $dataAlternatif->id }}"
@@ -36,6 +37,12 @@
                                             href="#editpenilaian{{ $dataAlternatif->id }}"
                                             class="btn btn-warning btn-sm btn rounded mr-2"><i class="fa fa-eye"></i></a>
                                     @endif
+                                @else
+                                            <button data-toggle="modal" title="Edit Data"
+                                                class="btn btn-warning btn-sm btn rounded mr-2"
+                                                onclick="return false;"><i class="fa fa-eye"></i></button>
+                                        
+                                @endif
                                 </td>
                             </tr>
 
