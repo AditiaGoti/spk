@@ -5,8 +5,9 @@
 @section('main')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h4 mb-0 text-gray-800">Data User</h1>
-<!-- 
-        <a href="{{ route('createUser') }}" class="btn btn-sm btn-dark"> Tambah User </a> -->
+        @if (Auth::user()->role == 'admin')
+        <a href="{{ route('createUser') }}" class="btn btn-sm btn-dark bg-gradient-primary"><i class="fa fa-plus mr-2"></i> Tambah User </a>
+        @endif
     </div>
     <div class="card shadow mb-4">
 
