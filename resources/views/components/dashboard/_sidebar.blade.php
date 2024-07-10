@@ -21,7 +21,9 @@
     <!-- <div class="sidebar-heading">
         Master Data
     </div> -->
-    <li class="nav-item {{ $page === 'kriteria' ? 'active' : '' }}">
+
+    @if (Auth::user()->role == 'admin')
+        <li class="nav-item {{ $page === 'kriteria' ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('indexKriteria') }}">
                 <i class="fas fa-fw fa-folder"></i>
                 <span>Data Kriteria</span></a>
@@ -32,6 +34,8 @@
                 <i class="fas fa-fw fa-folder-open"></i>
                 <span>Nilai Kriteria</span></a>
         </li>
+    @endif
+    @if (Auth::user()->role == 'user')
     <li class="nav-item {{ $page === 'alternatif' ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('indexDataAlternatif') }}">
             <i class="fas fa-fw fa-users"></i>
@@ -43,6 +47,7 @@
             <i class="fas fa-fw fa-edit"></i>
             <span>Data Penilaian</span></a>
     </li>
+    @endif
 
     <li class="nav-item {{ $page === 'perhitungan' ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('indexPerhitungan') }}">
@@ -64,11 +69,13 @@
         Master User
     </div> -->
 
+    @if (Auth::user()->role == 'admin')
         <li class="nav-item {{ $page === 'user' ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('indexUser') }}">
                 <i class="fas fa-fw fa-users-cog"></i>
                 <span>Data User</span></a>
         </li>
+    @endif
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
