@@ -28,7 +28,7 @@
 
 .slide img {
     width: 100%;
-    height: 60%;
+    height: 65%;
     display: block;
 }
 </style>
