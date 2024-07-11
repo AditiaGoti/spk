@@ -120,7 +120,7 @@
                                         $id_alternatif = $alternatif['id'];
                                         $id_kriteria = $kriteria['id'];
                                     @endphp
-                                    <td>{{ $matriks_x[$id_kriteria][$id_alternatif] }}</td>
+                                    <td>{{ substr($matriks_x[$id_kriteria][$id_alternatif],0,1) }}</td>
                                 @endforeach
                             </tr>
                         @endforeach
@@ -169,6 +169,10 @@
                                 @endforeach
                             </tr>
                         @endforeach
+                        <script>
+    var nilai = "{{ substr($matriks_x[$id_kriteria][$id_alternatif],0,3) }}";
+    console.log("nilai:", nilai);
+</script>
                     </tbody>
                 </table>
             </div>

@@ -1,132 +1,68 @@
 @extends('layouts.dashboard')
 @section('title', 'Dashboard')
 @push('style')
+<style>
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: 700;
+}
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.slide img {
+    width: 100%;
+    height: 60%;
+    display: block;
+}
+</style>
 @endpush
 @section('main')
     <div class="mb-4">
-
-        <!-- <div class="row">
-            @if (Auth::user()->role == 'admin')
-                <div class="col-xl-4 col-md-6 mb-4">
-                    <div class="card border-bottom-info shadow h-100 py-2">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="{{ route('indexKriteria') }}"
-                                            class="text-secondary text-decoration-none">Data Kriteria</a></div>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="fas fa-folder fa-2x text-gray-300"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <h4 class="center-container">SPK MODAL EKSPOR
+                </h4>
+        <div class="slider-container">
+            <div class="slides">
+                <div class="slide">
+                <img src="{{ asset('assets/img/image_4.jpg') }}">
                 </div>
-
-                <div class="col-xl-4 col-md-6 mb-4">
-                    <div class="card border-bottom-secondary shadow h-100 py-2">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><a
-                                            href="{{ route('indexSubKriteria') }}"
-                                            class="text-secondary text-decoration-none">Nilai Kriteria</a></div>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="fas fa-folder-open fa-2x text-gray-300"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="slide">
+                <img src="{{ asset('assets/img/image_1.jpg') }}">
                 </div>
-
-                <div class="col-xl-4 col-md-6 mb-4">
-                <div class="card border-bottom-danger shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="{{ route('indexUser') }}"
-                                        class="text-secondary text-decoration-none">Data User</a></div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-user-cog fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
+                <div class="slide">
+                <img src="{{ asset('assets/img/image_5.jpg') }}">
                 </div>
             </div>
-            @endif
-
-            <div class="col-xl-4 col-md-6 mb-4">
-                <div class="card border-bottom-danger shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><a
-                                        href="{{ route('indexDataAlternatif') }}"
-                                        class="text-secondary text-decoration-none">Data Alternatif</a></div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-user fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-4 col-md-6 mb-4">
-                <div class="card border-bottom-success shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="{{ route('indexPenilaian') }}"
-                                        class="text-secondary text-decoration-none">Data Penilaian</a></div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-book fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-4 col-md-6 mb-4">
-                <div class="card border-bottom-primary shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><a
-                                        href="{{ route('indexPerhitungan') }}"
-                                        class="text-secondary text-decoration-none">Data Perhitungan</a></div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-calculator fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-xl-4 col-md-6 mb-4">
-                <div class="card border-bottom-warning shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="{{ route('indexHasil') }}"
-                                        class="text-secondary text-decoration-none">Data Hasil Akhir</a></div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-chart-bar fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div> -->
         </div>
     </div>
 @endsection
 @push('script')
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelector('.slides');
+    const totalSlides = document.querySelectorAll('.slide').length;
+    let index = 0;
+
+    setInterval(() => {
+        index = (index + 1) % totalSlides;
+        slides.style.transform = `translateX(-${index * 100}%)`;
+    }, 3000); // Change slide every 3 seconds
+});
+</script>
 @endpush

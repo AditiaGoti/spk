@@ -48,13 +48,13 @@
             <span>Data Penilaian</span></a>
     </li>
     @endif
-
+    @if (Auth::user()->role == 'user')
     <li class="nav-item {{ $page === 'perhitungan' ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('indexPerhitungan') }}">
             <i class="fas fa-fw fa-calculator"></i>
             <span>Data Perhitungan</span></a>
     </li>
-
+    @endif
     <li class="nav-item {{ $page === 'hasil' ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('indexHasil') }}">
             <i class="fas fa-fw fa-chart-area"></i>
