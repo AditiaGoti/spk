@@ -23,7 +23,7 @@
     <link rel="icon" href="{{ asset('assets/img/favicon.ico') }}" type="image/x-icon">
 </head>
 
-<body class="bg-gradient-dark">
+<body class="bg-gradient-primary">
     @include('sweetalert::alert')
 
 
@@ -35,13 +35,13 @@
                     <div class="card-body py-4 px-4">
                         <div class="mb-4">
                             <h1 class="h3 tex-black font-weight-bold">Log In</h1>
-                            <p>Masukkan NRP dan Password anda</p>
+                            <p>Masukkan NIP dan Password anda</p>
                         </div>
                         <form class="user" action="{{ route('storeLogin') }}" method="post">
                             @csrf
                             <div class="form-group">
                                 <input required autocomplete="off" type="number" value=""
-                                    class="form-control form-control-user" id="exampleInputUser" placeholder="NRP"
+                                    class="form-control form-control-user" id="exampleInputUser" placeholder="NIP"
                                     name="nrp" />
                             </div>
                             @error('nrp')
@@ -52,14 +52,14 @@
                                     class="form-control form-control-user" id="exampleInputPassword" name="password"
                                     placeholder="Password" />
                             </div>
-                            <button name="submit" type="submit" class="btn btn-dark btn-user btn-block mt-4">
+                            <button name="submit" type="submit" class=" bg-gradient-primary btn btn-dark btn-user btn-block mt-4">
                                 Masuk</button>
-                            <div class="text-center mt-3">
+                            <!-- <div class="text-center mt-3">
                                 <p class="fs-6 fw-light">Belum punya akun ?
                                     <a href="{{ route('indexDaftar') }}"
                                         class="fw-light text-decoration-none text-color">Daftar</a>
                                 </p>
-                            </div>
+                            </div> -->
                         </form>
                     </div>
                 </div>

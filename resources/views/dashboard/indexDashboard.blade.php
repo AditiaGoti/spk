@@ -2,67 +2,90 @@
 @section('title', 'Dashboard')
 @push('style')
 <style>
-.center-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-weight: 700;
-}
-.slider-container {
+.item {
+    border: 1px solid grey;
     width: 100%;
-    overflow: hidden;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.item:hover {
+    color: #fff;
+    background-color: #4e73df;
+    border-color: #4e73df;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.deskripsi {
+    display: flex;
+    flex-direction: row;
+    padding: 35px;
+    gap: 50px;
+}
+
+.icon {
+    border: 1px solid grey;
+    border-radius: 60px;
+    padding: 30px;
+    height: fit-content;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.icon:hover {
+    border-color: #fff;
+}
+
+.icon-width {
     position: relative;
-    margin: auto;
+    font-size: 70px;
+    height: 20px;
 }
 
-.slides {
+.text {
     display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.slide {
-    min-width: 100%;
-    box-sizing: border-box;
-}
-
-.slide img {
-    width: 100%;
-    height: 65%;
-    display: block;
+    flex-direction: column;
+    margin-top: 20px;
 }
 </style>
 @endpush
+
 @section('main')
     <div class="mb-4">
-    <h4 class="center-container">SPK MODAL EKSPOR
-                </h4>
-        <div class="slider-container">
-            <div class="slides">
-                <div class="slide">
-                <img src="{{ asset('assets/img/image_4.jpg') }}">
+        <h4 class="mb-3">DASHBOARD SPK MODAL EKSPOR</h4>
+        <div class="col">
+            <div class="item mb-4">
+                <div class="deskripsi">
+                    <div class="icon">
+                        <i class="fa fa-rocket icon-width" aria-hidden="true"></i>
+                    </div>
                 </div>
-                <div class="slide">
-                <img src="{{ asset('assets/img/image_1.jpg') }}">
+                <div class="text">   
+                    <h3 class="text-black font-weight-bold">Tujuan</h3>
+                    <p>Fasilitas Pembiayaan Modal Kerja Ekspor (PMKE) yang disediakan oleh Indonesia Eximbank dalam rangka mendukung usaha anda untuk:</p>
+                    <ul>
+                        <li>Pengadaan bahan baku dan/atau bahan penolong</li>
+                        <li>Pembelian bahan baku termasuk kegiatan jasa baik dari dalam negeri maupun luar negeri</li>
+                        <li>Penggantian dan/atau pemeliharaan komponen dan sarana produksi, kebutuhan musiman, membiayai inventori/ piutang/ kontrak; atau</li>
+                        <li>Kebutuhan modal kerja khusus lainnya yang kegiatannya dalam rangka ekspor atau memiliki justifikasi ekspor.</li>
+                    </ul>
                 </div>
-                <div class="slide">
-                <img src="{{ asset('assets/img/image_5.jpg') }}">
+            </div>
+            <div class="item">
+                <div class="deskripsi">
+                    <div class="icon">
+                        <i class="fa fa-handshake icon-width" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="text">   
+                    <h3 class="text-black font-weight-bold">Manfaat</h3>
+                    <p>Membantu meningkatkan kesejahteraan masyarakat melalui kegiatan ekspor.</p>
                 </div>
             </div>
         </div>
     </div>
 @endsection
 @push('script')
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const slides = document.querySelector('.slides');
-    const totalSlides = document.querySelectorAll('.slide').length;
-    let index = 0;
-
-    setInterval(() => {
-        index = (index + 1) % totalSlides;
-        slides.style.transform = `translateX(-${index * 100}%)`;
-    }, 3000); // Change slide every 3 seconds
-});
-</script>
 @endpush

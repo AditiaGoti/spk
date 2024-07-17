@@ -17,7 +17,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <label class="font-weight-bold">NRP</label>
+                        <label class="font-weight-bold">NIP</label>
                         <input autocomplete="off" type="number" name="nrp" required class="form-control" />
                         @error('nrp')
                             <p class="text-danger fs-6 fw-light my-2">{{ $message }}</p>

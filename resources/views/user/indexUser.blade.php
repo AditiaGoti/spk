@@ -18,7 +18,7 @@
                 <thead class="text-white bg-gradient-primary">
                         <tr align="center">
                             <th style="width: 3%">No</th>
-                            <th>NRP</th>
+                            <th>NIP</th>
                             <th>Nama</th>
                             <th>Email</th>
                             <th>Role</th>
