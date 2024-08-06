@@ -12,9 +12,7 @@
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css" />
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('assets/css/sb-admin-2.min.css') }}" rel="stylesheet" />
@@ -33,27 +31,23 @@
             <div class="col-auto mx-auto">
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body py-4 px-4">
+                        <img src="images/logo-eximbank-indonesia1.png" alt="" style="width: 100%; height: 100px; margin-bottom:30px" />
                         <div class="mb-4">
-                            <h1 class="h3 tex-black font-weight-bold">Log In</h1>
                             <p>Masukkan NIP dan Password anda</p>
                         </div>
                         <form class="user" action="{{ route('storeLogin') }}" method="post">
                             @csrf
                             <div class="form-group">
-                                <input required autocomplete="off" type="number" value=""
-                                    class="form-control form-control-user" id="exampleInputUser" placeholder="NIP"
-                                    name="nrp" />
+                                <input required autocomplete="off" type="number" value="" class="form-control form-control-user" id="exampleInputUser" placeholder="NIP" name="nrp" />
                             </div>
                             @error('nrp')
-                                <p class="text-danger fs-6 fw-light my-2">{{ $message }}</p>
+                            <p class="text-danger fs-6 fw-light my-2">{{ $message }}</p>
                             @enderror
                             <div class="form-group">
-                                <input required autocomplete="off" type="password"
-                                    class="form-control form-control-user" id="exampleInputPassword" name="password"
-                                    placeholder="Password" />
+                                <input required autocomplete="off" type="password" class="form-control form-control-user" id="exampleInputPassword" name="password" placeholder="Password" />
                             </div>
                             <button name="submit" type="submit" class=" bg-gradient-primary btn btn-dark btn-user btn-block mt-4">
-                                Masuk</button>
+                                LOGIN</button>
                             <!-- <div class="text-center mt-3">
                                 <p class="fs-6 fw-light">Belum punya akun ?
                                     <a href="{{ route('indexDaftar') }}"

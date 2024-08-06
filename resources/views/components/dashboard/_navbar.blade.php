@@ -4,14 +4,16 @@
     <button id="sidebarToggleTop" class="btn text-dark d-md-none rounded-circle mr-3">
         <i class="fa fa-bars"></i>
     </button>
-
+    <div style="display: flex; justify-content: end; align-items: flex-end;margin-right: 300px;">
+    <img src="images/logo-eximbank-indonesia1.png" alt="" style="width: 30%" />
+     </div>
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
 
         <!-- Nav Item - User Information -->
         <li class="nav-item dropdown no-arrow">
-            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
+
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="text-uppercase mr-2 d-none d-lg-inline text-gray-600 small">
                     {{ Auth::user()->nama }}
                 </span>
